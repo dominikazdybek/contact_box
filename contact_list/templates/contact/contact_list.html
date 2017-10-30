@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Contact list - Contact list App{% endblock %}
+{% block content %}
+    <h1>Contact list</h1>
+    <UL>
+        {% for contact in contacts %}
+            <LI> {{contact.name}} {{contact.surname}} </LI>
+        {% endfor %}
+    </UL>
+{% endblock %}

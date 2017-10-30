@@ -1,0 +1,12 @@
+<HTML>
+	<HEAD>
+		{% load static %}
+		<link rel ='stylesheet' type='text/css' href='{%static "main.css" %}'>
+		<TITLE>{%block title%}Contact list App{% endblock %}</TITLE>
+	</HEAD>
+	<BODY>
+		<P> Header: Warsztat 3 - Contact List </P>
+		{% block content %} <H1>Witaj na naszej stronie!</H1> {% endblock %}
+		<P>Stopka: (c) {{ year }} by {{ author }}</P>
+	</BODY>
+</HTML>
