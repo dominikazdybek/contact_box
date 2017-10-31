@@ -18,6 +18,9 @@ from django.contrib import admin
 from contact_list.views.landing_view import LandingView
 from contact_list.views.contact_list_view import ContactListView
 from contact_list.views.contact_add_view import ContactAddView
+from contact_list.views.contact_modify_view import ContactModifyView
+from contact_list.views.contact_delete_view import ContactDeleteView
+from contact_list.views.contact_show_view import ContactShowView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,6 +28,9 @@ urlpatterns = [
     url(r'^/?$', LandingView.as_view()),
     url(r'^contact/list$', ContactListView.as_view()),
     url(r'^contact/add$', ContactAddView.as_view()),
-   
+    url(r'^contact/modify/(?P<my_id>(\d)+)$', ContactModifyView.as_view()),
+    url(r'^contact/delete/(?P<my_id>(\d)+)$', ContactDeleteView.as_view()),
+    url(r'^contact/show/(?P<my_id>(\d)+)$', ContactShowView.as_view()),
+
 
 ]

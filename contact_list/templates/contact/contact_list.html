@@ -1,10 +1,24 @@
 {% extends "base.html" %}
-{% block title %}Contact list - Contact list App{% endblock %}
+
+{% block title %}Contact List - Contact List App{% endblock %}
 {% block content %}
-    <h1>Contact list</h1>
-    <UL>
-        {% for contact in contacts %}
-            <LI> {{contact.name}} {{contact.surname}} </LI>
-        {% endfor %}
-    </UL>
+  <H1>Contact list</H1>
+  <OL>
+    {% for contact in contacts %}
+      <LI>
+        <a href='/contact/show/{{contact.id}}'>
+          {{contact.name}} {{contact.surname}}
+        </a>
+        <a href='/contact/delete/{{contact.id}}'>
+          <INPUT type='submit' name='delete'value='delete'/>
+        </a>
+        <a href='/contact/modify/{{contact.id}}'>
+          <INPUT type='submit' name='edit' value='edit'/>
+        </a>
+      </LI>
+    {% endfor %}
+  </OL>
+  <a href='/contact/add'>
+    <INPUT type='submit' name='add' value='Add contact'/>
+  </a>
 {% endblock %}

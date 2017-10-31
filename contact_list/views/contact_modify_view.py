@@ -4,19 +4,18 @@ from contact_list.models import Contact
 from django.http.response import HttpResponseRedirect
 
 
-class ContactAddView(View):
-	def get(self,request):
+class ContactModifyView(View):
+	def get(self,request,my_id):
 		context = {"author":"Dominika",
 			"year":2017}
-		return render(request, "contact/contact_add.html",context)
+		return render(request, "contact/contact_modify.html",context)
 
-	def post(self,request):
+	def post(self,request,my_id):
 		#validate input from form 
-		contact = Contact()
+		contact = Contact.objects.get(id=my_id)
 		contact.name = request.POST.get("name")
 		contact.surname = request.POST.get("surname")
 		contact.description = request.POST.get("description")
 		contact.save()
-
-		return HttpResponseRedirect("/contact/show/" + str(contact.id))
+		return HttpResponseRedirect("/contact/list")
 	
