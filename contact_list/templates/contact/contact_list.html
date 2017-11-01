@@ -2,23 +2,23 @@
 
 {% block title %}Contact List - Contact List App{% endblock %}
 {% block content %}
-  <H1>Contact list</H1>
-  <OL>
+  <h1>Contact list</h1>
+  <ol>
     {% for contact in contacts %}
-      <LI>
+      <li>
         <a href='/contact/show/{{contact.id}}'>
           {{contact.name}} {{contact.surname}}
         </a>
         <a href='/contact/delete/{{contact.id}}'>
-          <INPUT type='submit' name='delete'value='delete'/>
+          <button>delete</button>
         </a>
         <a href='/contact/modify/{{contact.id}}'>
-          <INPUT type='submit' name='edit' value='edit'/>
+          <button>edit</button>
         </a>
-      </LI>
+      </li>
     {% endfor %}
-  </OL>
+  </ol>
   <a href='/contact/add'>
-    <INPUT type='submit' name='add' value='Add contact'/>
+    <button>Add contact</button>
   </a>
 {% endblock %}

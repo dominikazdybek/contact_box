@@ -21,6 +21,9 @@ from contact_list.views.contact_add_view import ContactAddView
 from contact_list.views.contact_modify_view import ContactModifyView
 from contact_list.views.contact_delete_view import ContactDeleteView
 from contact_list.views.contact_show_view import ContactShowView
+from contact_list.views.contact_addAddress_view import ContactAddAddressView
+from contact_list.views.contact_addPhone_view import ContactAddPhoneView
+from contact_list.views.contact_addEmail_view import ContactAddEmailView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -31,6 +34,9 @@ urlpatterns = [
     url(r'^contact/modify/(?P<my_id>(\d)+)$', ContactModifyView.as_view()),
     url(r'^contact/delete/(?P<my_id>(\d)+)$', ContactDeleteView.as_view()),
     url(r'^contact/show/(?P<my_id>(\d)+)$', ContactShowView.as_view()),
+    url(r'^contact/(?P<my_id>(\d)+)/addAddress$', ContactAddAddressView.as_view()),
+    url(r'^contact/(?P<my_id>(\d)+)/addPhone$', ContactAddPhoneView.as_view()),
+    url(r'^contact/(?P<my_id>(\d)+)/addEmail$', ContactAddEmailView.as_view()),
 
 
 ]

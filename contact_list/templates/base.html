@@ -1,12 +1,12 @@
-<HTML>
-  <HEAD>
+<html>
+  <head>
     {% load static %}
     <link rel='stylesheet' type='text/css' href='{% static "main.css" %}'>
-    <TITLE>{% block title %}Contact List App{% endblock %}</TITLE>
-  </HEAD>
-  <BODY>
-    <P>Nagłówek:Contact List</P>
-    {% block content %}<H1>Witaj na naszej stronie</H1>{% endblock %}
-    <P>Stopka: (c) {{ year }} by {{ author }}</P>
-  </BODY>
-</HTML>
+    <title>{% block title %}Contact List App{% endblock %}</title>
+  </head>
+  <body>
+    <p>Nagłówek:Contact List</p>
+    {% block content %}<h1>Witaj na naszej stronie</h1>{% endblock %}
+    <p>Stopka: (c) {{ year }} by {{ author }}</p>
+  </body>
+</html>

@@ -11,14 +11,14 @@ class ContactDeleteView(View):
 		return render(request, "contact/contact_delete.html",context)
 
 	def post(self,request,my_id):
-		#validate input from form 
+		#validate input from form
 		yes_from_form = request.POST.get('yes')
 		cancel_from_form = request.POST.get('cancel')
 		if yes_from_form:
 			contact = Contact.objects.get(id=my_id)
 			contact.delete()
+			return HttpResponseRedirect("/contact/list")
 		else:
 			pass
 
 		return HttpResponseRedirect("/contact/list")
-	

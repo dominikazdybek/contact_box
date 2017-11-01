@@ -10,9 +10,9 @@ class Contact(models.Model):
 	surname = models.CharField(max_length=255)
 	description = models.TextField()
 	#groups=models.ManyToManyField(Group)
-	
 
-"""class Adress(models.Model):
+
+class Adress(models.Model):
 	city = models.CharField(max_length=255)
 	street = models.CharField(max_length=255)
 	number_of_house = models.IntegerField()
@@ -29,4 +29,3 @@ class Email(models.Model):
 	email=models.TextField()
 	type_of_email=models.CharField(max_length=64)
 	contact=models.ForeignKey(Contact)
-"""

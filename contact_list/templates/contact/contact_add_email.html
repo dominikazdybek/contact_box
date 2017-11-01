@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Add - Contact List App{% endblock %}
+{% block content %}
+  <h1>Add email:</h1>
+  <form method='post'>
+    <p>Email: <input type='text' name='email'/></p>
+    <p>Email type:
+      <select name="email type">
+        <option value="home">home</option>
+        <option value="bussiness">business</option>
+      </select>
+    </p>
+    <p><input type='submit'/></p>
+    {% csrf_token %}
+  </form>
+<a href='/contact/modify/{{contact.id}}'><button>Cancel</button></a>
+{% endblock %}

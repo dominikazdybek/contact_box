@@ -2,7 +2,7 @@
 
 {% block title %}Show Contact - Contact List App{% endblock %}
 {% block content %}
-  <H1>Show Contact</H1>
+  <h1>Show Contact</h1>
     <table>
         <tr>
           <td>Name:</td>
@@ -16,10 +16,46 @@
           <td>Description:</td>
           <td>{{contact.description}}</td>
         </tr>
+        <tr>
+          <td>Address:</td>
+          <td>
+            <ol>
+              {% for address in addresses %}
+                <li>
+                  {{address.city}} {{address.street}} {{address.number_of_house}}
+                </li>
+              {% endfor %}
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>Phone number: </td>
+          <td>
+            <ol>
+              {% for phone in phones %}
+                <li>
+                  {{phone.number}} {{phone.type_of_phone}}
+                </li>
+              {% endfor %}
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>Email: </td>
+          <td>
+            <ol>
+              {% for email in emails %}
+                <li>
+                  {{email.email}} {{email.type_of_email}}
+                </li>
+              {% endfor %}
+            </ol>
+          </td>
+        </tr>
     </table>
-    <FORM method='post'>
-      <INPUT type='submit' name='modify' value='modify'/>
-      <INPUT type='submit' name='cancel' value='cancel'/>
+    <form method='post'>
+      <input type='submit' name='modify' value='modify'/>
+      <input type='submit' name='cancel' value='cancel'/>
       {% csrf_token %}
-    </FORM>
+    </form>
 {% endblock %}

@@ -2,11 +2,11 @@
 
 {% block title %}Contact Delete - Contact List App{% endblock %}
 {% block content %}
-  <H1>Contact delete:</H1>
+  <h1>Contact delete:</h1>
   <FORM method='post'>
-    <P>Do you really want to delete this contact?</P>
-    <P><INPUT type='submit' name='yes' value='yes'/>
-    <INPUT type='submit' name='cancel' value='cancel'/></P>
+    <p>Do you really want to delete this contact?</p>
+    <p><input type='submit' name='yes' value='YES'/>
+    <input type='submit' name='cancel' value='CANCEL'/></p>
     {% csrf_token %}
-  </FORM>
+  </form>
 {% endblock %}
