@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Contact List - Contact List App{% endblock %}
+{% block content %}
+  <h1>Groups list</h1>
+  <ol>
+    {% for group in groups %}
+      <li>
+        <a href='/groups/show/{{group.id}}'>
+          {{group.name}}
+        </a>
+        <a href='/groups/delete/{{group.id}}'>
+          <button>delete</button>
+        </a>
+      </li>
+    {% endfor %}
+  </ol>
+  <a href='/groups/search'>
+    Find member in groups
+  </a></br></br>
+  <a href='/groups/add'>
+    <button>Add group</button>
+  </a>
+  <a href='/contact/list'>
+    <button>Cancel</button>
+  </a>
+{% endblock %}

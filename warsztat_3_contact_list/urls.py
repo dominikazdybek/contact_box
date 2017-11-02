@@ -24,6 +24,11 @@ from contact_list.views.contact_show_view import ContactShowView
 from contact_list.views.contact_addAddress_view import ContactAddAddressView
 from contact_list.views.contact_addPhone_view import ContactAddPhoneView
 from contact_list.views.contact_addEmail_view import ContactAddEmailView
+from contact_list.views.groups_list_view import GroupsListView
+from contact_list.views.groups_add_view import GroupsAddView
+from contact_list.views.groups_show_view import GroupsShowView
+from contact_list.views.groups_delete_view import GroupsDeleteView
+from contact_list.views.groups_search_view import GroupsSearchView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -37,6 +42,9 @@ urlpatterns = [
     url(r'^contact/(?P<my_id>(\d)+)/addAddress$', ContactAddAddressView.as_view()),
     url(r'^contact/(?P<my_id>(\d)+)/addPhone$', ContactAddPhoneView.as_view()),
     url(r'^contact/(?P<my_id>(\d)+)/addEmail$', ContactAddEmailView.as_view()),
-
-
+    url(r'^groups/list$', GroupsListView.as_view()),
+    url(r'^groups/add$', GroupsAddView.as_view()),
+    url(r'^groups/show/(?P<my_id>(\d)+)$', GroupsShowView.as_view()),
+    url(r'^groups/delete/(?P<my_id>(\d)+)$', GroupsDeleteView.as_view()),
+    url(r'^groups/search$', GroupsSearchView.as_view()),
 ]

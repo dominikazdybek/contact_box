@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Delete - Contact List App{% endblock %}
+{% block content %}
+  <h1>Group delete:</h1>
+  <FORM method='post'>
+    <p>Do you really want to delete this group?</p>
+    <p><input type='submit' name='delete_group' value='YES'/>
+    <input type='submit' name='cancel' value='CANCEL'/></p>
+    {% csrf_token %}
+  </form>
+{% endblock %}

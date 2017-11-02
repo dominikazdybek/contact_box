@@ -52,6 +52,18 @@
             </ol>
           </td>
         </tr>
+        <tr>
+          <td>Groups: </td>
+          <td>
+            <ol>
+              {% for group in groups %}
+                <li>
+                  {{group.name}}
+                </li>
+              {% endfor %}
+            </ol>
+          </td>
+        </tr>
     </table>
     <form method='post'>
       <input type='submit' name='modify' value='modify'/>

@@ -1,15 +1,15 @@
 from django.db import models
 
 # Create your models here.
-"""class Group(models.Model):
+class Group(models.Model):
 	name=models.CharField(max_length=255)
-	"""
+
 
 class Contact(models.Model):
 	name= models.CharField(max_length=255)
 	surname = models.CharField(max_length=255)
 	description = models.TextField()
-	#groups=models.ManyToManyField(Group)
+	groups=models.ManyToManyField(Group)
 
 
 class Adress(models.Model):

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Contact List - Contact List App{% endblock %}
+{% block content %}
+  <h1>Groups search</h1>
+  <form method='post'>
+    Find member in groups: <input type='text' name='member' value='{{contact.name}}'/>
+    <input type='submit' name='find' value='find'/>
+    {% csrf_token %}
+  </form>
+  {% if groups %}
+  <ol>
+    {% for group in groups %}
+      <li>
+          {{group.name}}
+      </li>
+      {% endfor %}
+    </ol>
+    {% else %}
+    <p> not found </p>
+    {% endif %}
+  <a href='/groups/list'>
+    <button>Cancel</button>
+  </a>
+{% endblock %}

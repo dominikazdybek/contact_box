@@ -12,7 +12,7 @@
   </form>
   <table>
     <tr>
-      <td>Address:</td>
+      <th>Address:</th>
     </tr>
     <tr>
       <td>
@@ -33,7 +33,7 @@
   </table>
   <table>
     <tr>
-      <td>Phone number:</td>
+      <th>Phone number:</th>
     </tr>
     <tr>
       <td>
@@ -54,7 +54,7 @@
   </table>
   <table>
     <tr>
-      <td>Email:</td>
+      <th>Email:</th>
     </tr>
     <tr>
       <td>
@@ -72,7 +72,26 @@
     <a href='/contact/{{contact.id}}/addEmail'><button>Add email</button></a>
     </td>
     </tr>
-  </table></br></br>
-
-  <a href='/contact/show/{{contact.id}}'><button>Cancel</button></a>
+  </table>
+<table>
+  <tr>
+    <th>Groups:</th>
+  </tr>
+  <tr>
+    <td>
+      <form method="post">
+        <select name="groups" multiple>
+          {% for group in groups %}
+          <option value="{{group.id}}">{{group.name}}</option>
+          {% endfor %}
+        </select>
+        <input type="submit" name="add_group" value="add_group">
+        {% csrf_token %}
+      </form>
+  </td>
+</tr>
+</table>
+</br></br>
+  <a href='/contact/show/{{contact.id}}'><button>Ok</button></a>
+  <a href='/contact/list'><button>Cancel</button></a>
 {% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from contact_list.models import Contact,Adress,Phone,Email
+from contact_list.models import Contact,Adress,Phone,Email, Group
 from django.http.response import HttpResponseRedirect
 
 class ContactShowView(View):
@@ -9,10 +9,12 @@ class ContactShowView(View):
 		addresses = Adress.objects.filter(contact=contact)
 		phones = Phone.objects.filter(contact=contact)
 		emails = Email.objects.filter(contact=contact)
+		groups = contact.groups.all()
 		context = {"contact" : contact,
 			"addresses" : addresses,
 			"emails" :emails,
 			"phones" : phones,
+			"groups" : groups,
 			"author":"Dominika",
 			"year":2017}
 		print("GET LandingView")

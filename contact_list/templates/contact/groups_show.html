@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Show Contact - Contact List App{% endblock %}
+{% block content %}
+  <h1>{{group.name}}</h1>
+    <table>
+        <tr>
+          <th scope="row">Members:</th>
+        </tr>
+        <tr>
+          <td>
+            <ol>
+              {% for contact in contacts %}
+                <li>
+                  <a href='/contact/show/{{contact.id}}'>
+                  {{contact.name}} {{contact.surname}}
+                  </a>
+                </li>
+              {% endfor %}
+            </ol>
+          </td>
+        </tr>
+    </table>
+    <form method='post'>
+      <input type='submit' name='cancel' value='cancel'/>
+      {% csrf_token %}
+    </form>
+{% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from contact_list.models import Contact, Adress, Phone, Email
+from contact_list.models import Contact, Adress, Phone, Email, Group
 from django.http.response import HttpResponseRedirect
 
 
@@ -10,7 +10,9 @@ class ContactModifyView(View):
 		addresses = Adress.objects.filter(contact=contact)
 		phones = Phone.objects.filter(contact=contact)
 		emails = Email.objects.filter(contact=contact)
-		context = {"contact":contact,
+		groups = Group.objects.all().order_by('name')
+		context = {"groups" :groups,
+		"contact":contact,
 		"addresses" : addresses,
 		"phones" :phones,
 		"emails":emails,
@@ -20,6 +22,7 @@ class ContactModifyView(View):
 
 	def post(self,request,my_id):
 		contact = Contact.objects.get(id=my_id)
+		print(len(request.POST.getlist('groups')))
 		#validate input from form
 		if request.POST.get('modify'):
 			contact.name = request.POST.get("name")
@@ -41,4 +44,10 @@ class ContactModifyView(View):
 			email_id= request.POST.get("email_id")
 			email = Email.objects.filter(contact=contact).filter(pk=email_id)
 			email.delete()
+			return self.get(request,my_id)
+		elif request.POST.get('add_group'):
+			selected_groups = request.POST.getlist('groups')
+			for group in selected_groups:
+				contact.groups.add(group)
+				contact.save()
 			return self.get(request,my_id)

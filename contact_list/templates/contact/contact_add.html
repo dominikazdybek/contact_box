@@ -7,8 +7,8 @@
     <p>Name: <input type='text' name='name' /></p>
     <p>Surname: <INPUT type='text' name='surname'/></p>
     <p>Description: <textarea name='description'></textarea></p>
-    <p><input type='submit'/></P>
+    <p><input type='submit' value='Add'/></P>
     {% csrf_token %}
-  </form="">
+  </form>
   <a href='/contact/list'><button>Cancel</button></a>
 {% endblock %}
