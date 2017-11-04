@@ -2,26 +2,34 @@
 
 {% block title %}Contact List - Contact List App{% endblock %}
 {% block content %}
+<ul class="nav navbar-nav">
+   <li><a href='/groups/add'>Add group</a></li>
+</ul>
+</div>
+<div class="container">
   <h1>Groups list</h1>
-  <ol>
-    {% for group in groups %}
-      <li>
-        <a href='/groups/show/{{group.id}}'>
-          {{group.name}}
-        </a>
-        <a href='/groups/delete/{{group.id}}'>
-          <button>delete</button>
-        </a>
-      </li>
-    {% endfor %}
-  </ol>
-  <a href='/groups/search'>
-    Find member in groups
-  </a></br></br>
-  <a href='/groups/add'>
-    <button>Add group</button>
-  </a>
-  <a href='/contact/list'>
-    <button>Cancel</button>
-  </a>
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="list-group">
+        {% for group in groups %}
+        <li class="list-group-item">
+          <a href='/groups/show/{{group.id}}'>
+            {{group.name}}
+          </a>
+          <a href='/groups/delete/{{group.id}}'>
+            <button class="btn btn-default pull-right">delete</button>
+          </a>
+        </li>
+        {% endfor %}
+      </ol>
+      <a href='/groups/search'>
+        Find member in groups
+      </a></br></br>
+      <a href='/contact/list'>
+        <button class="btn btn-default">Cancel</button>
+      </a>
+    </div>
+  </div>
+  </div>
+
 {% endblock %}

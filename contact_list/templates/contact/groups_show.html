@@ -2,8 +2,10 @@
 
 {% block title %}Show Contact - Contact List App{% endblock %}
 {% block content %}
+</div>
+<div class="container">
   <h1>{{group.name}}</h1>
-    <table>
+    <table class="table table-hover">
         <tr>
           <th scope="row">Members:</th>
         </tr>
@@ -22,7 +24,7 @@
         </tr>
     </table>
     <form method='post'>
-      <input type='submit' name='cancel' value='cancel'/>
+      <input class="btn btn-default" type='submit' name='cancel' value='cancel'/>
       {% csrf_token %}
     </form>
 {% endblock %}

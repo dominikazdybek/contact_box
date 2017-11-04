@@ -2,8 +2,13 @@
 
 {% block title %}Show Contact - Contact List App{% endblock %}
 {% block content %}
+<ul class="nav navbar-nav">
+   <li><a href='/groups/list'>Groups</a></li>
+</ul>
+</div>
+<div class="container">
   <h1>Show Contact</h1>
-    <table>
+    <table class="table table-hover">
         <tr>
           <td>Name:</td>
           <td>{{contact.name}}</td>
@@ -66,8 +71,9 @@
         </tr>
     </table>
     <form method='post'>
-      <input type='submit' name='modify' value='modify'/>
-      <input type='submit' name='cancel' value='cancel'/>
+      <input type='submit' name='modify' value='modify' class="btn btn-default"/>
+      <input type='submit' name='cancel' value='cancel' class="btn btn-default"/>
       {% csrf_token %}
     </form>
+  </div>
 {% endblock %}

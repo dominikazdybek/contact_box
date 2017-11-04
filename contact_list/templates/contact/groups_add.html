@@ -2,11 +2,21 @@
 
 {% block title %}Contact Add - Contact List App{% endblock %}
 {% block content %}
+</div>
+<div class= "container">
   <h1>Group add:</h1>
-  <form method='post'>
-    <p>Name: <input type='text' name='name' /></p>
-    <p><input type='submit'/></P>
+  <form method='post' class="form-horizontal">
+    <div class="form-group">
+      <label class="control-label col-md-2" for="name">Name: </label>
+      <div class="col-md-4">
+        <input class="form-control" type='text' name='name' value/>
+      </div>
     {% csrf_token %}
   </form>
-  <a href='/groups/list'><button>Cancel</button></a>
+<p><input class="btn btn-default" type='submit'/></P>
+<div class="col-md-offset-2 col-md-4">
+      <a href='/groups/list'><button class="btn btn-default">Cancel</button></a>
+</div>
+</div>
+</div>
 {% endblock %}

@@ -2,10 +2,19 @@
 
 {% block title %}Contact List - Contact List App{% endblock %}
 {% block content %}
+</div>
+<div class="container">
   <h1>Groups search</h1>
-  <form method='post'>
-    Find member in groups: <input type='text' name='member' value='{{contact.name}}'/>
-    <input type='submit' name='find' value='find'/>
+  <form method='post' class="form-horizontal">
+    <div class="form-group">
+      <label class="control-label col-md-2" for="email">Find member in groups:</label>
+      <div class="col-md-3">
+        <input class="form-control" type='text' name='member' value='{{contact.name}}'/>
+      </div>
+      <div class="col-md-1">
+        <input class="form-control" type='submit' name='find' value='find'/>
+      </div>
+    </div>
     {% csrf_token %}
   </form>
   {% if groups %}
@@ -20,6 +29,7 @@
     <p> not found </p>
     {% endif %}
   <a href='/groups/list'>
-    <button>Cancel</button>
+    <button class="btn btn-default">Cancel</button>
   </a>
+</div>
 {% endblock %}
