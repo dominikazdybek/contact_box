@@ -3,7 +3,7 @@
 {% block title %}Show Contact - Contact List App{% endblock %}
 {% block content %}
 <ul class="nav navbar-nav">
-   <li><a href='/groups/list'>Groups</a></li>
+   <li><a href="/groups/list">Groups</a></li>
 </ul>
 </div>
 <div class="container">
@@ -70,9 +70,9 @@
           </td>
         </tr>
     </table>
-    <form method='post'>
-      <input type='submit' name='modify' value='modify' class="btn btn-default"/>
-      <input type='submit' name='cancel' value='cancel' class="btn btn-default"/>
+    <form method="post">
+      <input type="submit" name="modify" value="modify" class="btn btn-default"/>
+      <input type="submit" name="cancel" value="cancel" class="btn btn-default"/>
       {% csrf_token %}
     </form>
   </div>

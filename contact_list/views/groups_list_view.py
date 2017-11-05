@@ -14,5 +14,5 @@ class GroupsListView(View):
 		return render(request, "contact/groups_list.html",context)
 
 	def post(self,request):
-		contact_name = request.POST.get('member')
-		return redirect('groups/search/?name='+contact_name)
+		contact_name = request.POST.get("member")
+		return redirect("groups/search/?name="+contact_name)

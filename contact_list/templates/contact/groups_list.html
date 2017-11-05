@@ -3,7 +3,7 @@
 {% block title %}Contact List - Contact List App{% endblock %}
 {% block content %}
 <ul class="nav navbar-nav">
-   <li><a href='/groups/add'>Add group</a></li>
+   <li><a href="/groups/add">Add group</a></li>
 </ul>
 </div>
 <div class="container">
@@ -16,20 +16,19 @@
           <a href='/groups/show/{{group.id}}'>
             {{group.name}}
           </a>
-          <a href='/groups/delete/{{group.id}}'>
+          <a href="/groups/delete/{{group.id}}">
             <button class="btn btn-default pull-right">delete</button>
           </a>
         </li>
         {% endfor %}
       </ol>
-      <a href='/groups/search'>
+      <a href="/groups/search">
         Find member in groups
       </a></br></br>
-      <a href='/contact/list'>
+      <a href="/contact/list">
         <button class="btn btn-default">Cancel</button>
       </a>
     </div>
   </div>
   </div>
-
 {% endblock %}

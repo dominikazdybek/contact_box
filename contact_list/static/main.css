@@ -1,3 +1,7 @@
 h1 {
-  color: orange;
+    color: hsl(0, 69%, 76%);
+}
+
+body {
+  font-family: "Times New Roman", Georgia, Serif;
 }

@@ -16,4 +16,13 @@ class GroupsShowView(View):
 
 	def post(self, request, my_id):
 		#validate input from form
-		return HttpResponseRedirect("/groups/list")
+		delete_from_form = request.POST.get("contact_id")
+		cancel_from_form = request.POST.get("cancel")
+		if delete_from_form:
+			group = Group.objects.get(id=my_id)
+			cont = Contact.objects.get(name=delete_from_form)
+			cont.groups.remove(group)
+			cont.save()
+			return self.get(request,my_id)
+		else:
+			return HttpResponseRedirect("/groups/list")

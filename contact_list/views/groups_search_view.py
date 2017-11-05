@@ -10,7 +10,7 @@ class GroupsSearchView(View):
 		return render(request, "contact/groups_search.html",context)
 
 	def post(self, request):
-		contact_name = request.POST.get('member')
+		contact_name = request.POST.get("member")
 		contacts = Contact.objects.filter(name= contact_name) | \
 			Contact.objects.filter(surname= contact_name)
 		groups = None

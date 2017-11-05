@@ -12,8 +12,8 @@ class GroupsDeleteView(View):
 
 	def post(self,request,my_id):
 		#validate input from form
-		yes_form = request.POST.get('delete_group')
-		cancel_form = request.POST.get('cancel')
+		yes_form = request.POST.get("delete_group")
+		cancel_form = request.POST.get("cancel")
 		if yes_form:
 			group = Group.objects.get(id=my_id)
 			group.delete()

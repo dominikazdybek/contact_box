@@ -22,8 +22,8 @@ class ContactShowView(View):
 
 	def post(self, request, my_id):
 		#validate input from form
-		modify_from_form = request.POST.get('modify')
-		cancel_from_form = request.POST.get('cancel')
+		modify_from_form = request.POST.get("modify")
+		cancel_from_form = request.POST.get("cancel")
 		print(modify_from_form,cancel_from_form)
 		if modify_from_form:
 			return HttpResponseRedirect("/contact/modify/" + my_id)

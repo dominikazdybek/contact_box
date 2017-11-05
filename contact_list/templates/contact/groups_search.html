@@ -5,14 +5,14 @@
 </div>
 <div class="container">
   <h1>Groups search</h1>
-  <form method='post' class="form-horizontal">
+  <form method="post" class="form-horizontal">
     <div class="form-group">
       <label class="control-label col-md-2" for="email">Find member in groups:</label>
       <div class="col-md-3">
-        <input class="form-control" type='text' name='member' value='{{contact.name}}'/>
+        <input class="form-control" type="text" name="member" value="{{contact.name}}"/>
       </div>
       <div class="col-md-1">
-        <input class="form-control" type='submit' name='find' value='find'/>
+        <input class="form-control" type="submit" name="find" value="find"/>
       </div>
     </div>
     {% csrf_token %}
@@ -28,7 +28,7 @@
     {% else %}
     <p> not found </p>
     {% endif %}
-  <a href='/groups/list'>
+  <a href="/groups/list">
     <button class="btn btn-default">Cancel</button>
   </a>
 </div>

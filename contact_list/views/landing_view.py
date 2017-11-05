@@ -12,4 +12,3 @@ class LandingView(View): # klasa dziedziczy po klasie View
 
 	def post(self,request):
 		return Httpresponse("Przyszedł request POST")
-

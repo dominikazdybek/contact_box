@@ -2,17 +2,42 @@
 
 {% block title %}Contact Modify - Contact List App{% endblock %}
 {% block content %}
+<ul class="nav navbar-nav">
+   <li><a href="/groups/list">Groups</a></li>
+</ul>
+</div>
+<div class= "container">
   <h1>Contact modify:</h1>
-  <form method='post'>
-    <p>Name: <input type='text' name='name' value='{{contact.name}}'/></p>
-    <p>Surname: <input type='text' name='surname' value='{{contact.surname}}' /></p>
-    <p>Description: <textarea name='description'>{{contact.description}} </textarea></p>
-    <p><input type='submit' name= 'modify'/></P>
+  <form class="form-horizontal" method="post">
+    <div class="form-group">
+      <label class="control-label col-md-2" for="name">Name:</label>
+      <div class="col-md-4">
+        <input type="text" class="form-control" name="name" value="{{contact.name}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2" for="surname">Surname</label>
+      <div class="col-md-4">
+        <input type="text" class="form-control" name="surname" value="{{contact.surname}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2" for="desc">Description</label>
+      <div class="col-md-4">
+        <textarea class="form-control" name="description" rows="5">{{contact.description}}</textarea>
+      </div>
+    </div>
+    <div class="col-md-offset-2 col-md-4">
+        <input type="submit" name= "modify" class="btn btn-default"/>
+    </div>
     {% csrf_token %}
   </form>
-  <table>
+</div>
+</br>
+<div class= "container">
+  <table class="table table-hover">
     <tr>
-      <th>Address:</th>
+      <th scope="row">Address:</th>
     </tr>
     <tr>
       <td>
@@ -20,20 +45,20 @@
         {% for address in addresses %}
         <form method="post">
         <li>{{address.city}} {{address.street}} {{address.number_of_house}}
-            <input type='submit' name='delete_address' value='delete'/>
-            <input type='text' name='address_id' value='{{address.id}}' hidden='True'/>
+            <input type="submit" name="delete_address" value="delete" class="btn btn-default pull-right"/>
+            <input type="text" name="address_id" value="{{address.id}}" hidden="True"/>
             {% csrf_token %}
         </li>
         </form>
         {% endfor %}
       </ol>
-      <a href='/contact/{{contact.id}}/addAddress'><button>Add address</button></a>
+      <a href="/contact/{{contact.id}}/addAddress"><button class="btn btn-default">Add address</button></a>
     </td>
     </tr>
   </table>
-  <table>
+  <table class="table table-hover">
     <tr>
-      <th>Phone number:</th>
+      <th scope="row">Phone number:</th>
     </tr>
     <tr>
       <td>
@@ -41,20 +66,20 @@
         {% for phone in phones %}
         <form method="post">
           <li>{{phone.number}} {{phone.type_of_phone}}
-            <input type='submit' name='delete_phone' value='delete'/>
-            <input type='text' name='phone_id' value='{{phone.id}}' hidden='True'/>
+            <input type="submit" name="delete_phone" value="delete" class="btn btn-default pull-right"/>
+            <input type="text" name="phone_id" value="{{phone.id}}" hidden="True"/>
             {% csrf_token %}
         </li>
       </form>
         {% endfor %}
       </ol>
-    <a href='/contact/{{contact.id}}/addPhone'><button>Add phone number</button></a>
+    <a href="/contact/{{contact.id}}/addPhone"><button class="btn btn-default">Add phone number</button></a>
     </td>
     </tr>
   </table>
-  <table>
+  <table class="table table-hover">
     <tr>
-      <th>Email:</th>
+      <th scope="row">Email:</th>
     </tr>
     <tr>
       <td>
@@ -62,18 +87,18 @@
         {% for email in emails %}
         <form method="post">
         <li>{{email.email}} {{email.type_of_email}}
-          <input type='submit' name='delete_email' value='delete'/>
-          <input type='text' name='email_id' value='{{email.id}}' hidden='True'/>
+          <input type="submit" name="delete_email" value="delete" class="btn btn-default pull-right"/>
+          <input type="text" name="email_id" value="{{email.id}}" hidden="True"/>
           {% csrf_token %}
         </li>
       </form>
         {% endfor %}
       </ol>
-    <a href='/contact/{{contact.id}}/addEmail'><button>Add email</button></a>
+    <a href="/contact/{{contact.id}}/addEmail"><button class="btn btn-default">Add email</button></a>
     </td>
     </tr>
   </table>
-<table>
+<table class="table table-hover">
   <tr>
     <th>Groups:</th>
   </tr>
@@ -85,13 +110,14 @@
           <option value="{{group.id}}">{{group.name}}</option>
           {% endfor %}
         </select>
-        <input type="submit" name="add_group" value="add_group">
+        <input type="submit" name="add_group" value="add_group" class="btn btn-default">
         {% csrf_token %}
       </form>
   </td>
 </tr>
 </table>
 </br></br>
-  <a href='/contact/show/{{contact.id}}'><button>Ok</button></a>
-  <a href='/contact/list'><button>Cancel</button></a>
+  <a href='/contact/show/{{contact.id}}'><button class="btn btn-default">Ok</button></a>
+  <a href='/contact/list'><button class="btn btn-default">Cancel</button></a>
+</div>
 {% endblock %}

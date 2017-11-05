@@ -14,17 +14,23 @@
             <ol>
               {% for contact in contacts %}
                 <li>
-                  <a href='/contact/show/{{contact.id}}'>
+                  <a href="/contact/show/{{contact.id}}">
                   {{contact.name}} {{contact.surname}}
                   </a>
+                  <form method="post">
+                    <input class="btn btn-default " type="submit" name="delete" value="delete"/>
+                    <input  type="text" name="contact_id" value="{{contact.name}}" hidden="True"/>
+                    {% csrf_token %}
+                  </form>
                 </li>
               {% endfor %}
             </ol>
           </td>
         </tr>
     </table>
-    <form method='post'>
-      <input class="btn btn-default" type='submit' name='cancel' value='cancel'/>
+    <form method="post">
+      <input class="btn btn-default" type="submit" name="cancel" value="cancel"/>
       {% csrf_token %}
     </form>
+  </diV>
 {% endblock %}

@@ -3,8 +3,8 @@
 {% block title %}Contact List - Contact List App{% endblock %}
 {% block content %}
 <ul class="nav navbar-nav">
-   <li><a href='/contact/add'>Add contact</a></li>
-   <li><a href='/groups/list'>Groups</a></li>
+   <li><a href="/contact/add">Add contact</a></li>
+   <li><a href="/groups/list">Groups</a></li>
 </ul>
 </div>
 <div class="container">
@@ -14,13 +14,13 @@
       <ol class="list-group">
         {% for contact in contacts %}
         <li class="list-group-item">
-          <a href='/contact/show/{{contact.id}}'>
+          <a href="/contact/show/{{contact.id}}">
             {{contact.name}} {{contact.surname}}
           </a>
-          <a href='/contact/delete/{{contact.id}}'>
+          <a href="/contact/delete/{{contact.id}}">
             <button class="btn btn-default pull-right">delete</button>
           </a>
-          <a href='/contact/modify/{{contact.id}}'>
+          <a href="/contact/modify/{{contact.id}}">
             <button class="btn btn-default pull-right">edit</button>
           </a>
         </li>

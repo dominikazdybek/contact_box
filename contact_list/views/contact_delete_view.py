@@ -12,8 +12,8 @@ class ContactDeleteView(View):
 
 	def post(self,request,my_id):
 		#validate input from form
-		yes_from_form = request.POST.get('yes')
-		cancel_from_form = request.POST.get('cancel')
+		yes_from_form = request.POST.get("yes")
+		cancel_from_form = request.POST.get("cancel")
 		if yes_from_form:
 			contact = Contact.objects.get(id=my_id)
 			contact.delete()
